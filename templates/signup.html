@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RES - Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Header with Navbar -->
+  <header class="bg-zinc-900 text-white">
+    <nav class="container mx-auto px-4 sm:px-6 py-4">
+      <div class="flex flex-col sm:flex-row justify-between items-center">
+        <div class="flex items-center space-x-2 mb-4 sm:mb-0">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="logo" class="w-8 h-8 sm:w-12 sm:h-12" />
+          <span class="text-white font-bold text-2xl sm:text-3xl md:text-5xl">RES</span>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="block sm:hidden text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden sm:flex flex-wrap justify-center gap-x-4 lg:gap-x-6 text-white font-semibold text-lg md:text-xl lg:text-2xl">
+          <a href="/" class="hover:text-yellow-400">Home</a>
+          <a href="/about" class="hover:text-yellow-400">About Us</a>
+          <a href="/contact" class="hover:text-yellow-400">Contact Us</a>
+            <a href="/login" class="hover:text-yellow-400 ">Sign In</a>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation (Hidden by default) -->
+      <div id="mobile-menu" class="hidden sm:hidden w-full mt-4 bg-black bg-opacity-80 rounded-lg p-4">
+        <div class="flex flex-col space-y-3 text-white font-semibold text-xl">
+          <a href="/" class="hover:text-yellow-400 py-2">Home</a>
+          <a href="/about" class="hover:text-yellow-400 py-2">About Us</a>
+          <a href="/contact" class="hover:text-yellow-400 py-2">Contact Us</a>
+            <a href="/login" class="hover:text-yellow-400 py-2">Sign In</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-8 sm:py-12 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
+    <div class="max-w-4xl mx-auto">
+      <!-- Signup Form Card -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <!-- Card Header -->
+        <div class="bg-blue-50 p-6 border-b border-gray-200">
+          <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Create Your Account</h1>
+          <p class="text-gray-600 mt-2">Join RES to find your dream property today!</p>
+        </div>
+
+        <!-- Form Section -->
+        <div class="p-6">
+          <form class="space-y-6">
+            <!-- Two Column Layout for Name -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                <input type="text" id="firstName" name="firstName" required
+                  class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                  placeholder="Enter your first name">
+              </div>
+              <div>
+                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required
+                  class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                  placeholder="Enter your last name">
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+              <input type="email" id="email" name="email" required
+                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                placeholder="your.email@example.com">
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required
+                class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                placeholder="+91 XXXXX XXXXX">
+            </div>
+
+            <!-- Two Column Layout for Password -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input type="password" id="password" name="password" required
+                  class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                  placeholder="Create a password">
+              </div>
+              <div>
+                <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required
+                  class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
+                  placeholder="Confirm your password">
+              </div>
+            </div>
+
+            <!-- Account Type -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">I am a:</label>
+              <div class="flex flex-wrap gap-4">
+                <label class="inline-flex items-center">
+                  <input type="radio" name="accountType" value="buyer" class="h-5 w-5 text-yellow-500 focus:ring-yellow-500" checked>
+                  <span class="ml-2 text-gray-700">Buyer</span>
+                </label>
+                <label class="inline-flex items-center">
+                  <input type="radio" name="accountType" value="seller" class="h-5 w-5 text-yellow-500 focus:ring-yellow-500">
+                  <span class="ml-2 text-gray-700">Seller</span>
+                </label>
+                <label class="inline-flex items-center">
+                  <input type="radio" name="accountType" value="agent" class="h-5 w-5 text-yellow-500 focus:ring-yellow-500">
+                  <span class="ml-2 text-gray-700">Agent</span>
+                </label>
+                <label class="inline-flex items-center">
+                  <input type="radio" name="accountType" value="tenant" class="h-5 w-5 text-yellow-500 focus:ring-yellow-500">
+                  <span class="ml-2 text-gray-700">Tenant</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input id="terms" name="terms" type="checkbox" required
+                  class="h-5 w-5 text-yellow-500 focus:ring-yellow-500 rounded">
+              </div>
+              <div class="ml-3 text-sm">
+                <label for="terms" class="text-gray-600">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms and Conditions</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a></label>
+              </div>
+            </div>
+
+            <!-- Newsletter Subscription -->
+            <div class="flex items-start">
+              <div class="flex items-center h-5">
+                <input id="newsletter" name="newsletter" type="checkbox"
+                  class="h-5 w-5 text-yellow-500 focus:ring-yellow-500 rounded">
+              </div>
+              <div class="ml-3 text-sm">
+                <label for="newsletter" class="text-gray-600">Subscribe to our newsletter for property updates and offers</label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+              <button type="submit"
+                class="w-full bg-yellow-400 hover:bg-yellow-500 text-black py-3 rounded-md font-semibold transition duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-600 shadow-md">
+                Create Account
+              </button>
+            </div>
+          </form>
+
+
+          <!-- Sign In Link -->
+          <div class="text-center mt-6">
+            <p class="text-gray-600">
+              Already have an account?
+              <a href="/signin" class="text-blue-600 hover:underline font-medium">Sign In</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-900 text-white py-8 sm:py-12 px-4 sm:px-10 mt-12">
+    <div class="max-w-screen-xl mx-auto">
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-700 pt-6 text-xs sm:text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center">
+        <div class="space-x-3 sm:space-x-6 mb-4 md:mb-0">
+          <a href="#" class="hover:text-white">Terms of Use</a>
+          <a href="#" class="hover:text-white">Privacy Policy</a>
+          <a href="#" class="hover:text-white">FAQ</a>
+        </div>
+        <p>© 2025 thithithara. All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu Toggle -->
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

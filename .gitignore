@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.pyo
+*.pyd
+*.env
+*.log
+
+# Django
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# Migrations
+**/migrations/*.py
+**/migrations/__pycache__/
+
+# Environment variables
+.env
+
+# Node (if using frontend build tools)
+node_modules/
+build/
+dist/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml

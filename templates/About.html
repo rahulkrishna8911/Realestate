@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - RES Real Estate Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-gray-100 font-sans">
+{% load static %}
+
+  <!-- Hero Section with Navbar -->
+  <section class="relative bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716'); height: 60vh;">
+    <div class="absolute inset-0 bg-black bg-opacity-70">
+      <!-- Navbar -->
+      <nav class="container mx-auto px-4 sm:px-6 py-4">
+        <div class="flex flex-col sm:flex-row justify-between items-center">
+          <div class="flex items-center space-x-2 mb-4 sm:mb-0">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="logo" class="w-8 h-8 sm:w-12 sm:h-12" />
+            <span class="text-white font-bold text-2xl sm:text-3xl md:text-5xl">RES</span>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-button" class="block sm:hidden text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden sm:flex flex-wrap justify-center gap-x-4 lg:gap-x-6 text-white font-semibold text-lg md:text-xl lg:text-2xl">
+            <a href="/" class="hover:text-yellow-400">Home</a>
+            <a href="/about" class="text-yellow-400 underline">About Us</a>
+            <a href="/contact" class="hover:text-yellow-400">Contact Us</a>
+            <a href="/login" class="hover:text-yellow-400 ">Sign In</a>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation (Hidden by default) -->
+        <div id="mobile-menu" class="hidden sm:hidden w-full mt-4 bg-black bg-opacity-80 rounded-lg p-4">
+          <div class="flex flex-col space-y-3 text-white font-semibold text-xl">
+            <a href="/" class="hover:text-yellow-400 py-2">Home</a>
+            <a href="/about" class="text-yellow-400 py-2">About Us</a>
+            <a href="/contact" class="hover:text-yellow-400 py-2">Contact Us</a>
+            <a href="/login" class="hover:text-yellow-400 py-2">Sign In</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Content -->
+      <div class="flex flex-col justify-center items-center text-center text-white h-full px-4">
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4">About Us</h1>
+        <p class="text-lg sm:text-xl md:text-2xl max-w-3xl">Your trusted real estate partner in Kerala helping you find your dream property</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Section -->
+  <section class="py-12 px-4 sm:px-8 md:px-16 lg:px-24 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-16">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
+        <div class="h-1 w-24 bg-yellow-400 mb-6"></div>
+        <p class="text-gray-700 mb-4">
+          Founded in 2010, RES (Real Estate Solutions) began with a simple vision: to transform the real estate experience in Kerala by making it transparent, efficient, and customer-centric.
+        </p>
+        <p class="text-gray-700 mb-4">
+          What started as a small team of passionate real estate professionals has now grown into one of Kerala's most trusted property platforms, connecting thousands of buyers with their dream homes every year.
+        </p>
+        <p class="text-gray-700">
+          Our journey has been defined by our commitment to innovation, integrity, and exceptional customer service - values that continue to guide us as we evolve and grow.
+        </p>
+      </div>
+      <div class="relative">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4" alt="Team meeting" class="rounded-lg shadow-lg w-full h-auto">
+        <div class="absolute -bottom-5 -left-5 w-32 h-32 bg-yellow-400 rounded-lg -z-10"></div>
+      </div>
+    </div>
+
+    <!-- Mission and Vision -->
+    <div class="bg-gray-50 rounded-xl shadow-md p-8 md:p-12 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="border-l-4 border-yellow-400 pl-6">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
+          <p class="text-gray-700">
+            To simplify real estate transactions by providing a transparent platform where buyers can easily find their ideal properties and sellers can showcase their offerings to the right audience. We aim to be the bridge that connects people with spaces where they can live, work, and thrive.
+          </p>
+        </div>
+        <div class="border-l-4 border-cyan-400 pl-6">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
+          <p class="text-gray-700">
+            To be Kerala's most trusted and innovative real estate platform, recognized for transforming property transactions into seamless experiences. We envision a future where finding your dream property is as effortless as navigating through our platform.
+          </p>
+        </div>
+      </div>
+    </div>
+
+        <!-- Our Services -->
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">Our Services</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <!-- Service 1 -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mb-4 flex items-center justify-center">
+          <i class="fas fa-home text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Residential Properties</h3>
+        <p class="text-gray-600">We offer a wide range of residential properties including apartments, villas, individual houses, and plots to suit all budgets and preferences.</p>
+      </div>
+      <!-- Service 2 -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mb-4 flex items-center justify-center">
+          <i class="fas fa-building text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Commercial Properties</h3>
+        <p class="text-gray-600">Find the perfect space for your business with our selection of office spaces, retail outlets, and commercial land available for sale or rent.</p>
+      </div>
+      <!-- Service 3 -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mb-4 flex items-center justify-center">
+          <i class="fas fa-hands-helping text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Property Management</h3>
+        <p class="text-gray-600">Our comprehensive property management services take care of everything from tenant screening to maintenance for property owners.</p>
+      </div>
+      <!-- Service 4 -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mb-4 flex items-center justify-center">
+          <i class="fas fa-file-contract text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Legal Assistance</h3>
+        <p class="text-gray-600">Our team of legal experts helps you navigate property documentation, verification, and registration processes with ease.</p>
+      </div>
+      <!-- Service 5 -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mb-4 flex items-center justify-center">
+          <i class="fas fa-money-bill-wave text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Financial Guidance</h3>
+        <p class="text-gray-600">Get expert advice on home loans, financing options, and investment strategies to make informed real estate decisions.</p>
+      </div>
+      <!-- Service 6 -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mb-4 flex items-center justify-center">
+          <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Investment Consulting</h3>
+        <p class="text-gray-600">Our real estate investment experts help you identify high-potential properties for maximum returns on your investments.</p>
+      </div>
+    </div>
+
+
+    <!-- Why Choose Us -->
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">Why Choose Us</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+          <i class="fas fa-check-circle text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Verified Properties</h3>
+        <p class="text-gray-600">All properties listed on our platform undergo a rigorous verification process to ensure authenticity and accuracy.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+          <i class="fas fa-compass text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Effortless Navigation</h3>
+        <p class="text-gray-600">Our intuitive platform makes it easy to search, filter, and find properties that match your specific requirements.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+          <i class="fas fa-robot text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">AI Powered Assistance</h3>
+        <p class="text-gray-600">Our advanced AI technology helps recommend properties based on your preferences and behavior.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition duration-300">
+        <div class="bg-blue-50 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+          <i class="fas fa-user-tie text-blue-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Expert Guidance</h3>
+        <p class="text-gray-600">Our team of experienced real estate professionals is always ready to provide personalized advice and support.</p>
+      </div>
+    </div>
+
+    <!-- Our Team -->
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">Meet Our Team</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <!-- Team Member 1 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a" alt="Team Member" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-1">Rajesh Menon</h3>
+          <p class="text-blue-600 font-medium mb-3">Founder & CEO</p>
+          <p class="text-gray-600 mb-4">With over 15 years of experience in real estate, Rajesh leads our team with a passion for innovation and customer satisfaction.</p>
+          <div class="flex space-x-3">
+            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-700 hover:text-black"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Team Member 2 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" alt="Team Member" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-1">Priya Nair</h3>
+          <p class="text-blue-600 font-medium mb-3">Head of Operations</p>
+          <p class="text-gray-600 mb-4">Priya ensures our day-to-day operations run smoothly, with a focus on efficiency and excellence in customer service.</p>
+          <div class="flex space-x-3">
+            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-700 hover:text-black"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Team Member 3 -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition duration-300">
+        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857" alt="Team Member" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-1">Anoop Kumar</h3>
+          <p class="text-blue-600 font-medium mb-3">Chief Technology Officer</p>
+          <p class="text-gray-600 mb-4">Anoop leads our tech initiatives, developing innovative solutions that make property searching easier and more intuitive.</p>
+          <div class="flex space-x-3">
+            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-700 hover:text-black"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="bg-blue-50 rounded-xl p-8 md:p-12 mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">What Our Clients Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Client" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Meera Krishnan</h4>
+              <p class="text-gray-600 text-sm">Homeowner</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mb-2">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700">"RES made finding our dream home so easy. Their team was supportive throughout the process, and we couldn't be happier with our new apartment. Highly recommended!"</p>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Client" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Thomas Mathew</h4>
+              <p class="text-gray-600 text-sm">Property Investor</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mb-2">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700">"As an investor, I appreciate the verified listings and detailed information RES provides. It has made my investment decisions much more informed and confident."</p>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956" alt="Client" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h4 class="font-bold">Lakshmi Iyer</h4>
+              <p class="text-gray-600 text-sm">First-time Buyer</p>
+            </div>
+          </div>
+          <div class="text-yellow-400 mb-2">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="text-gray-700">"The expert guidance from RES was invaluable for a first-time buyer like me. They simplified the complicated process and helped me find a property that perfectly fits my budget and needs."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Our Partners -->
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center">Our Partners</h2>
+    <div class="flex flex-wrap justify-center gap-6 md:gap-10 mb-16">
+      <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center w-36 h-24">
+        <span class="text-gray-400 text-lg font-semibold">RERA</span>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center w-36 h-24">
+        <span class="text-gray-400 text-lg font-semibold">SBI</span>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center w-36 h-24">
+        <span class="text-gray-400 text-lg font-semibold">HDFC</span>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center w-36 h-24">
+        <span class="text-gray-400 text-lg font-semibold">LIC Housing</span>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md flex items-center justify-center w-36 h-24">
+        <span class="text-gray-400 text-lg font-semibold">PNB Housing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-8 sm:py-12 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 bg-blue-50">
+    <div class="flex flex-col lg:flex-row justify-between items-center gap-6 sm:gap-10">
+      <!-- Left Content -->
+      <div class="lg:w-1/2 border-l-4 border-cyan-400 pl-4 sm:pl-6">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800">
+          Want to learn more about how we can help you?
+          <span class="text-blue-700 font-bold">Get in touch</span> today!
+        </h2>
+        <p class="mt-4 text-gray-600 text-base sm:text-lg">
+          Our friendly team is ready to answer your questions and provide personalized guidance on your real estate journey. Contact us today to schedule a consultation!
+        </p>
+      </div>
+
+      <!-- Right Contact Box -->
+      <div class="lg:w-1/2 flex flex-col items-center text-center relative">
+        <!-- Phone Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12 text-cyan-500 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.94 1.45l.41 1.65a2 2 0 01-.45 1.91l-1.1 1.1a16.06 16.06 0 006.07 6.07l1.1-1.1a2 2 0 011.91-.45l1.65.41A2 2 0 0121 18.72V22a2 2 0 01-2 2h-1C9.82 24 1 15.18 1 5V4a1 1 0 011-1h1z" />
+        </svg>
+
+        <!-- Call Text -->
+        <p class="text-sm uppercase tracking-widest text-gray-500">Call for help now!</p>
+
+        <!-- Phone Number -->
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 mt-2">+91 9048 6000 44</h3>
+
+        <!-- Contact Button -->
+        <button class="mt-6 px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-md shadow-md transition">
+          Contact us
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-900 text-white py-8 sm:py-12 px-4 sm:px-10">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+      <!-- Column 1: Logo & Description -->
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="logo" class="h-8 w-8">
+          <div>
+            <h2 class="text-xl font-bold">RES <span class="text-gray-300">.com</span></h2>
+            <p class="text-xs sm:text-sm text-gray-400 -mt-1">Surf your dream property</p>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+          RES is one of the best real estate websites in Kerala. You can buy rent or lease the property that you like. Being one of the best real estate websites in Kerala, thithithara.com is here to provide all the required details regarding a property. You can find all types of properties such as apartments for sale in Kerala, office spaces, house for sale, commercial land for sale, commercial building for sale, etc.
+        </p>
+      </div>
+
+      <!-- Column 2: Popular Searches -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Popular Searches In Kerala</h3>
+        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+          <li>House for Sale in Trivandrum</li>
+          <li>Plots/Lands for Sale in Ernakulam</li>
+          <li>Plots & Lands for Sale in Trivandrum</li>
+          <li>Flats for Sale in Ernakulam</li>
+          <li>Flats and Apartments for Sale in Kozhikode-Calicut</li>
+          <li>Flat/Apartment for Sale in Thiruvananthapuram</li>
+          <li>Flats & Apartments for sale in Kochi</li>
+          <li>House Villas for Sale in Thrissur</li>
+          <li>Flat/Apartment for Sale in Thrissur</li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Quick Links -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Quick links</h3>
+        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+          <li><a href="/" class="hover:text-white">Home</a></li>
+          <li><a href="/about" class="text-white">About Us</a></li>
+          <li><a href="#" class="hover:text-white">Post Property</a></li>
+          <li><a href="#" class="hover:text-white">Blog & News</a></li>
+          <li><a href="/contact" class="hover:text-white">Contact Us</a></li>
+          <li><a href="#" class="hover:text-white">Other Services</a></li>
+          <li><a href="#" class="hover:text-white">Post Requirement</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact Info -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Get in touch</h3>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Ground Floor, Neo Space,<br>
+          KINFRA Techno Industrial Park,<br>
+          Kakkancheri, Calicut University P.O,<br>
+          Malappuram, Kerala – 600 635
+        </p>
+        <p class="text-xs sm:text-sm text-gray-300 mb-2 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.94 1.45l.41 1.65a2 2 0 01-.45 1.91l-1.1 1.1a16.06 16.06 0 006.07 6.07l1.1-1.1a2 2 0 011.91-.45l1.65.41A2 2 0 0121 18.72V22a2 2 0 01-2 2h-1C9.82 24 1 15.18 1 5V4a1 1 0 011-1h1z" />
+          </svg> +91 9000 6000 44
+        </p>
+        <p class="text-xs sm:text-sm text-gray-300 mb-4 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg> hello@RES.com
+        </p>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4 text-gray-300 mt-2">
+          <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-8 sm:mt-12 border-t border-gray-700 pt-6 text-xs sm:text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center">
+      <div class="space-x-3 sm:space-x-6 mb-4 md:mb-0">
+        <a href="#" class="hover:text-white">Terms of Use</a>
+        <a href="#" class="hover:text-white">Privacy Policy</a>
+        <a href="#" class="hover:text-white">FAQ</a>
+      </div>
+      <p>© 2025 RES. All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu Toggle -->
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

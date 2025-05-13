@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - RES - Real Estate Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-gray-100 font-sans">
+{% load static %}
+
+  <!-- Hero Section with Navbar -->
+  <section class="relative bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa'); height: 50vh;">
+    <div class="absolute inset-0 bg-black bg-opacity-60">
+      <!-- Navbar -->
+      <nav class="container mx-auto px-4 sm:px-6 py-4">
+        <div class="flex flex-col sm:flex-row justify-between items-center">
+          <div class="flex items-center space-x-2 mb-4 sm:mb-0">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="logo" class="w-8 h-8 sm:w-12 sm:h-12" />
+            <span class="text-white font-bold text-2xl sm:text-3xl md:text-5xl">RES</span>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-button" class="block sm:hidden text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden sm:flex flex-wrap justify-center gap-x-4 lg:gap-x-6 text-white font-semibold text-lg md:text-xl lg:text-2xl">
+            <a href="/" class="hover:text-yellow-400">Home</a>
+            <a href="/about" class="hover:text-yellow-400">About Us</a>
+            <a href="/contact" class="hover:text-yellow-400 text-yellow-400">Contact Us</a>
+            <a href="/login" class="hover:text-yellow-400 ">Sign In</a>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation (Hidden by default) -->
+        <div id="mobile-menu" class="hidden sm:hidden w-full mt-4 bg-black bg-opacity-80 rounded-lg p-4">
+          <div class="flex flex-col space-y-3 text-white font-semibold text-xl">
+            <a href="/" class="hover:text-yellow-400 py-2">Home</a>
+            <a href="/about" class="hover:text-yellow-400 py-2">About Us</a>
+            <a href="/contact" class="hover:text-yellow-400 text-yellow-400 py-2">Contact Us</a>
+            <a href="/login" class="hover:text-yellow-400 py-2">Sign In</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Content -->
+      <div class="flex flex-col justify-center items-center text-center text-white h-full px-4 pt-20 sm:pt-0">
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4">Get in Touch</h1>
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-semibold mb-4 sm:mb-6">We're Here to Help</h2>
+        <p class="max-w-3xl text-lg sm:text-xl">Have questions about finding your dream property? Our expert team is ready to assist you every step of the way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Information Section -->
+  <section class="py-12 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Office Location -->
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition duration-300">
+          <div class="inline-block p-4 rounded-full bg-blue-50 mb-4">
+            <i class="fas fa-map-marker-alt text-3xl text-blue-700"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Our Office</h3>
+          <p class="text-gray-600">
+            Ground Floor, Neo Space,<br>
+            KINFRA Techno Industrial Park,<br>
+            Kakkancheri, Calicut University P.O,<br>
+            Malappuram, Kerala – 600 635
+          </p>
+        </div>
+
+        <!-- Card 2: Phone -->
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition duration-300">
+          <div class="inline-block p-4 rounded-full bg-blue-50 mb-4">
+            <i class="fas fa-phone-alt text-3xl text-blue-700"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+          <p class="text-gray-600 mb-2">Sales & Inquiries</p>
+          <p class="text-xl font-bold text-blue-800">+91 900 6000 44</p>
+          <p class="text-gray-600 mt-2">Mon-Sat: 9:00 AM - 6:00 PM</p>
+        </div>
+
+        <!-- Card 3: Email -->
+        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition duration-300">
+          <div class="inline-block p-4 rounded-full bg-blue-50 mb-4">
+            <i class="fas fa-envelope text-3xl text-blue-700"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+          <p class="text-gray-600 mb-2">For General Inquiries</p>
+          <p class="text-blue-700 font-medium">hello@RES.com</p>
+          <p class="text-gray-600 mt-2">For Support</p>
+          <p class="text-blue-700 font-medium">support@RES.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="py-10 sm:py-14 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 bg-blue-50">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col lg:flex-row gap-10">
+        <!-- Left: Form -->
+        <div class="lg:w-3/5">
+          <div class="border-l-4 border-cyan-400 pl-4 sm:pl-6 mb-8">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800">
+              Send us a <span class="text-blue-700 font-bold">Message</span>
+            </h2>
+            <p class="mt-4 text-gray-600">
+              Fill out the form below and our team will get back to you within 24 hours.
+            </p>
+          </div>
+
+          <form class="bg-white rounded-lg shadow-md p-6 sm:p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
+                <input type="text" placeholder="John Doe" class="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address*</label>
+                <input type="email" placeholder="john@example.com" class="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
+                <input type="tel" placeholder="+91 98765 43210" class="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                <select class="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                  <option>Property Purchase</option>
+                  <option>Property Rental</option>
+                  <option>Selling Property</option>
+                  <option>General Inquiry</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Message*</label>
+              <textarea rows="5" placeholder="How can we help you?" class="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" required></textarea>
+            </div>
+
+            <div class="mt-6">
+              <button type="submit" class="w-full md:w-auto px-8 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-md shadow-md transition">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: Map and Office Hours -->
+        <div class="lg:w-2/5 mt-8 lg:mt-0">
+          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <!-- Map Placeholder - Replace with actual map embed in production -->
+            <div class="h-64 bg-gray-200 flex items-center justify-center">
+              <img src="/api/placeholder/600/320" alt="Map Location" class="w-full h-full object-cover" />
+            </div>
+            
+            <!-- Office Hours -->
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-4">Office Hours</h3>
+              <div class="space-y-2">
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Monday - Friday</span>
+                  <span class="font-medium">9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Saturday</span>
+                  <span class="font-medium">10:00 AM - 4:00 PM</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-gray-600">Sunday</span>
+                  <span class="font-medium">Closed</span>
+                </div>
+              </div>
+              
+              <div class="mt-6 pt-6 border-t border-gray-200">
+                <h3 class="text-xl font-semibold mb-4">Need Immediate Assistance?</h3>
+                <p class="text-gray-600 mb-4">Our customer service team is available during business hours to help with any urgent matters.</p>
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-headset text-xl text-blue-700"></i>
+                  <span class="text-xl font-bold text-blue-800">+91 9048 6000 44</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-12 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+      <p class="text-gray-600">Find answers to the most common questions about our services.</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <!-- FAQ Items -->
+      <div class="space-y-4">
+        <!-- FAQ Item 1 -->
+        <div class="border border-gray-200 rounded-lg">
+          <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none">
+            <span>How do I schedule a property viewing?</span>
+            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="px-6 pb-4 text-gray-600">
+            <p>You can schedule a property viewing by calling our office at +91 9048 6000 44 or by filling out the contact form on this page. One of our agents will contact you to arrange a convenient time for your visit.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="border border-gray-200 rounded-lg">
+          <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none">
+            <span>What documents do I need to purchase a property?</span>
+            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="px-6 pb-4 text-gray-600">
+            <p>The required documents typically include proof of identity (Aadhar card, PAN card), address proof, income proof, and photographs. For specific requirements, please contact our office as they may vary depending on the property and financing method.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="border border-gray-200 rounded-lg">
+          <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none">
+            <span>Do you help with home loans and financing?</span>
+            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="px-6 pb-4 text-gray-600">
+            <p>Yes, we have partnerships with several leading banks and financial institutions to help our clients secure the best possible home loan rates and terms. Our team can guide you through the application process and documentation requirements.</p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="border border-gray-200 rounded-lg">
+          <button class="flex justify-between items-center w-full px-6 py-4 text-left font-semibold hover:bg-gray-50 focus:outline-none">
+            <span>How do I list my property for sale on your website?</span>
+            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="px-6 pb-4 text-gray-600">
+            <p>To list your property, you can register on our website and use our "Post Property" option. Alternatively, contact our team directly, and we'll help you create an attractive listing with professional photographs and detailed information to maximize your property's visibility.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-10 sm:py-12 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40 bg-zinc-800 text-white">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="md:w-1/2">
+        <h3 class="text-2xl sm:text-3xl font-semibold mb-2">Stay Updated</h3>
+        <p class="text-gray-300">Subscribe to our newsletter for the latest property listings, market trends, and investment opportunities.</p>
+      </div>
+      <div class="md:w-1/2 w-full">
+        <form class="flex flex-col sm:flex-row gap-3">
+          <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-md text-gray-800 focus:outline-none" required>
+          <button type="submit" class="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-md shadow-md transition">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-900 text-white py-8 sm:py-12 px-4 sm:px-10">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+      <!-- Column 1: Logo & Description -->
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="logo" class="h-8 w-8"> <!-- Using the same home icon -->
+          <div>
+            <h2 class="text-xl font-bold">RES <span class="text-gray-300">.com</span></h2>
+            <p class="text-xs sm:text-sm text-gray-400 -mt-1">Surf your dream property</p>
+          </div>
+        </div>
+        <p class="text-xs sm:text-sm leading-relaxed text-gray-300">
+          RES is one of the best real estate websites in Kerala. You can buy rent or lease the property that you like. Being one of the best real estate websites in Kerala, thithithara.com is here to provide all the required details regarding a property. You can find all types of properties such as apartments for sale in Kerala, office spaces, house for sale, commercial land for sale, commercial building for sale, etc.
+        </p>
+      </div>
+
+      <!-- Column 2: Popular Searches -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Popular Searches In Kerala</h3>
+        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+          <li>House for Sale in Trivandrum</li>
+          <li>Plots/Lands for Sale in Ernakulam</li>
+          <li>Plots & Lands for Sale in Trivandrum</li>
+          <li>Flats for Sale in Ernakulam</li>
+          <li>Flats and Apartments for Sale in Kozhikode-Calicut</li>
+          <li>Flat/Apartment for Sale in Thiruvananthapuram</li>
+          <li>Flats & Apartments for sale in Kochi</li>
+          <li>House Villas for Sale in Thrissur</li>
+          <li>Flat/Apartment for Sale in Thrissur</li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Quick Links -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Quick links</h3>
+        <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+          <li><a href="/" class="hover:text-white">Home</a></li>
+          <li><a href="/about" class="hover:text-white">About Us</a></li>
+          <li><a href="#" class="hover:text-white">Post Property</a></li>
+          <li><a href="#" class="hover:text-white">Blog & News</a></li>
+          <li><a href="/contact" class="hover:text-white">Contact Us</a></li>
+          <li><a href="#" class="hover:text-white">Other Services</a></li>
+          <li><a href="#" class="hover:text-white">Post Requirement</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact Info -->
+      <div>
+        <h3 class="text-white font-semibold mb-4">Get in touch</h3>
+        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+          Ground Floor, Neo Space,<br>
+          KINFRA Techno Industrial Park,<br>
+          Kakkancheri, Calicut University P.O,<br>
+          Malappuram, Kerala – 600 635
+        </p>
+        <p class="text-xs sm:text-sm text-gray-300 mb-2 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.94 1.45l.41 1.65a2 2 0 01-.45 1.91l-1.1 1.1a16.06 16.06 0 006.07 6.07l1.1-1.1a2 2 0 011.91-.45l1.65.41A2 2 0 0121 18.72V22a2 2 0 01-2 2h-1C9.82 24 1 15.18 1 5V4a1 1 0 011-1h1z" />
+          </svg> +91 9000 6000 44
+        </p>
+        <p class="text-xs sm:text-sm text-gray-300 mb-4 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg> hello@RES.com
+        </p>
+
+        <!-- Social Icons -->
+        <div class="flex space-x-4 text-gray-300 mt-2">
+          <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-8 sm:mt-12 border-t border-gray-700 pt-6 text-xs sm:text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center">
+      <div class="space-x-3 sm:space-x-6 mb-4 md:mb-0">
+        <a href="#" class="hover:text-white">Terms of Use</a>
+        <a href="#" class="hover:text-white">Privacy Policy</a>
+        <a href="#" class="hover:text-white">FAQ</a>
+      </div>
+      <p>© 2025 RES. All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu Toggle -->
+  <script>
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Simple FAQ toggle functionality
+    document.querySelectorAll('.border.border-gray-200.rounded-lg button').forEach(function(button) {
+      button.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const arrow = this.querySelector('svg');
+        
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+          arrow.classList.remove('transform', 'rotate-180');
+        } else {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          arrow.classList.add('transform', 'rotate-180');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

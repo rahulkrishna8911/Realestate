@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RES - Properties</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Navbar -->
+  <nav class="bg-zinc-900 text-white py-4">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row justify-between items-center">
+        <div class="flex items-center space-x-2 mb-4 sm:mb-0">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="logo" class="w-8 h-8 sm:w-12 sm:h-12" />
+          <span class="text-white font-bold text-2xl sm:text-3xl md:text-4xl">RES</span>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="block sm:hidden text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden sm:flex flex-wrap justify-center gap-x-4 lg:gap-x-6 text-white font-semibold text-lg">
+          <a href="/" class="hover:text-yellow-400">Home</a>
+          <a href="/properties" class="text-yellow-400">Properties</a>
+          <a href="/about" class="hover:text-yellow-400">About Us</a>
+          <a href="/contact" class="hover:text-yellow-400">Contact Us</a>
+          <a href="/login" class="hover:text-yellow-400">Sign In</a>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation (Hidden by default) -->
+      <div id="mobile-menu" class="hidden sm:hidden w-full mt-4 bg-black bg-opacity-80 rounded-lg p-4">
+        <div class="flex flex-col space-y-3 text-white font-semibold text-xl">
+          <a href="/" class="hover:text-yellow-400 py-2">Home</a>
+          <a href="/properties" class="text-yellow-400 py-2">Properties</a>
+          <a href="/about" class="hover:text-yellow-400 py-2">About Us</a>
+          <a href="/contact" class="hover:text-yellow-400 py-2">Contact Us</a>
+          <a href="/login" class="hover:text-yellow-400 py-2">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<!-- Hero Section -->
+<section class="relative bg-cover bg-center h-64" style="background-image: url('/static/images/property-hero.jpg');">
+  <div class="absolute inset-0 bg-black bg-opacity-60">
+    <div class="container mx-auto px-4 h-full flex items-center justify-center">
+      <div class="text-center text-white">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-2">Our Properties</h1>
+        <p class="text-xl">Find your dream property from our extensive listings</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Search Filters Section -->
+<section class="py-8 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <h2 class="text-2xl font-bold mb-4">Search Properties</h2>
+    <form method="GET">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Type Filter -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">Property Type</label>
+          <select name="property_type" class="w-full border border-gray-300 rounded-md p-2 h-12">
+            <option value="">All Types</option>
+            {% for type in property_types %}
+              <option value="{{ type.id }}" {% if filter_parameters.property_type == type.id|stringformat:"i" %}selected{% endif %}>{{ type.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- City Filter -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">City</label>
+          <select name="city" class="w-full border border-gray-300 rounded-md p-2 h-12">
+            <option value="">All Cities</option>
+            {% for city in cities %}
+              <option value="{{ city.id }}" {% if filter_parameters.city == city.id|stringformat:"i" %}selected{% endif %}>{{ city.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Status Filter -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">Status</label>
+          <div class="flex space-x-2">
+            <button type="button" onclick="document.getElementById('status').value='for_sale'; this.classList.add('bg-yellow-400'); this.classList.remove('bg-white'); document.getElementById('rentBtn').classList.add('bg-white'); document.getElementById('rentBtn').classList.remove('bg-yellow-400')" id="saleBtn" class="flex-1 px-4 py-2 rounded-md {% if filter_parameters.status == 'for_sale' or not filter_parameters.status %}bg-yellow-400 text-black{% else %}bg-white border border-gray-300 text-gray-700{% endif %} font-semibold hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600">
+              For Sale
+            </button>
+            <button type="button" onclick="document.getElementById('status').value='for_rent'; this.classList.add('bg-yellow-400'); this.classList.remove('bg-white'); document.getElementById('saleBtn').classList.add('bg-white'); document.getElementById('saleBtn').classList.remove('bg-yellow-400')" id="rentBtn" class="flex-1 px-4 py-2 rounded-md {% if filter_parameters.status == 'for_rent' %}bg-yellow-400 text-black{% else %}bg-white border border-gray-300 text-gray-700{% endif %} font-semibold hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-600">
+              For Rent
+            </button>
+            <input type="hidden" name="status" id="status" value="{{ filter_parameters.status|default:'for_sale' }}">
+          </div>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">Price Range</label>
+          <select name="price_range" class="w-full border border-gray-300 rounded-md p-2 h-12">
+            <option value="">Any Price</option>
+            <option value="0-5000000" {% if filter_parameters.price_range == '0-5000000' %}selected{% endif %}>Up to ₹50 Lac</option>
+            <option value="5000000-10000000" {% if filter_parameters.price_range == '5000000-10000000' %}selected{% endif %}>₹50 Lac - ₹1 Cr</option>
+            <option value="10000000-20000000" {% if filter_parameters.price_range == '10000000-20000000' %}selected{% endif %}>₹1 Cr - ₹2 Cr</option>
+            <option value="20000000-" {% if filter_parameters.price_range == '20000000-' %}selected{% endif %}>Above ₹2 Cr</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Advanced Filters -->
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Bedrooms Filter -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">Bedrooms</label>
+          <select name="bedrooms" class="w-full border border-gray-300 rounded-md p-2 h-12">
+            <option value="">Any</option>
+            <option value="1" {% if filter_parameters.bedrooms == '1' %}selected{% endif %}>1+</option>
+            <option value="2" {% if filter_parameters.bedrooms == '2' %}selected{% endif %}>2+</option>
+            <option value="3" {% if filter_parameters.bedrooms == '3' %}selected{% endif %}>3+</option>
+            <option value="4" {% if filter_parameters.bedrooms == '4' %}selected{% endif %}>4+</option>
+          </select>
+        </div>
+
+        <!-- Bathrooms Filter -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">Bathrooms</label>
+          <select name="bathrooms" class="w-full border border-gray-300 rounded-md p-2 h-12">
+            <option value="">Any</option>
+            <option value="1" {% if filter_parameters.bathrooms == '1' %}selected{% endif %}>1+</option>
+            <option value="2" {% if filter_parameters.bathrooms == '2' %}selected{% endif %}>2+</option>
+            <option value="3" {% if filter_parameters.bathrooms == '3' %}selected{% endif %}>3+</option>
+          </select>
+        </div>
+
+        <!-- Area Filter -->
+        <div>
+          <label class="block text-sm font-bold text-gray-700 mb-2">Area (sq.ft.)</label>
+          <select name="area" class="w-full border border-gray-300 rounded-md p-2 h-12">
+            <option value="">Any</option>
+            <option value="0-1000" {% if filter_parameters.area == '0-1000' %}selected{% endif %}>Up to 1000</option>
+            <option value="1000-2000" {% if filter_parameters.area == '1000-2000' %}selected{% endif %}>1000 - 2000</option>
+            <option value="2000-" {% if filter_parameters.area == '2000-' %}selected{% endif %}>Above 2000</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex items-end">
+          <button type="submit" class="w-full h-12 bg-yellow-400 hover:bg-yellow-500 text-black px-6 rounded-md font-semibold">
+            Apply Filters
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Properties Results Section -->
+<section class="py-8 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl sm:text-3xl font-bold">Properties in Kerala</h2>
+    <div class="flex items-center space-x-2">
+      <span class="text-gray-700">Sort by:</span>
+      <select name="sort_by" id="sort_by" class="border border-gray-300 rounded-md p-2" onchange="updateSort(this.value)">
+        <option value="price_low_high" {% if filter_parameters.sort_by == 'price_low_high' %}selected{% endif %}>Price (Low to High)</option>
+        <option value="price_high_low" {% if filter_parameters.sort_by == 'price_high_low' %}selected{% endif %}>Price (High to Low)</option>
+        <option value="newest" {% if filter_parameters.sort_by == 'newest' or not filter_parameters.sort_by %}selected{% endif %}>Newest First</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Property Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for property in properties %}
+    <div class="bg-white rounded-md shadow-md overflow-hidden h-full">
+      <div class="relative">
+        {% if property.images.exists %}
+        {% with property.images.first as main_image %}
+        <img src="{{ main_image.image.url }}" alt="{{ main_image.alt_text }}" class="w-full h-64 object-cover">
+        {% endwith %}
+        {% else %}
+        <img src="/static/images/property-placeholder.jpg" alt="{{ property.title }}" class="w-full h-64 object-cover">
+        {% endif %}
+        <div class="absolute top-2 left-2 flex flex-wrap gap-2">
+          {% if property.featured %}
+          <span class="bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded">FEATURED</span>
+          {% endif %}
+          <span class="{% if property.status == 'for_sale' %}bg-teal-500{% else %}bg-purple-500{% endif %} text-white text-xs font-semibold px-2 py-1 rounded">
+            {% if property.status == 'for_sale' %}FOR SALE{% elif property.status == 'for_rent' %}FOR RENT{% endif %}
+          </span>
+        </div>
+        <div class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">{{ property.property_type.name|upper }}</div>
+      </div>
+      <div class="p-4 sm:p-6">
+        <h3 class="text-lg sm:text-xl font-semibold mb-2">{{ property.title }}</h3>
+        <p class="text-sm sm:text-base text-gray-600 mb-2">{{ property.city.name }}, {{ property.address }}</p>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm sm:text-base text-gray-700 mb-2">
+          {% if property.bedrooms > 0 %}
+          <span>🛏️ {{ property.bedrooms }} Br</span>
+          {% endif %}
+
+          {% if property.bathrooms > 0 %}
+          <span>🛁 {{ property.bathrooms }} Ba</span>
+          {% endif %}
+
+          <span>📐 {{ property.area|floatformat:0 }} sq.ft.</span>
+          <span class="bg-gray-100 px-2 py-0.5 rounded text-green-700 font-medium">RERA</span>
+        </div>
+        <div class="flex justify-between items-center mt-3">
+          <span class="text-lg sm:text-xl font-bold text-gray-800">
+            {% if property.status == 'for_rent' %}
+            ₹ {{ property.price|floatformat:0 }} /month
+            {% else %}
+            {% if property.price >= 10000000 %}
+            ₹ {{ property.price|floatformat:-5|slice:":-1" }} Cr
+            {% else %}
+            ₹ {{ property.price|floatformat:0 }}
+            {% endif %}
+            {% endif %}
+          </span>
+          <a href="/property/{{ property.slug }}" class="text-sm text-blue-600 font-medium hover:underline border px-3 py-1 rounded">View Details</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="col-span-3 text-center py-10">
+      <p class="text-lg text-gray-600">No properties found matching your criteria.</p>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if properties.has_other_pages %}
+  <div class="mt-10 flex justify-center">
+    <nav class="flex items-center space-x-2">
+      {% if properties.has_previous %}
+      <a href="?{% for key, value in filter_parameters.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ properties.previous_page_number }}" class="px-3 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">
+        <i class="fas fa-chevron-left"></i>
+      </a>
+      {% endif %}
+
+      {% for i in properties.paginator.page_range %}
+        {% if properties.number == i %}
+        <span class="px-4 py-2 rounded-md bg-yellow-400 text-black font-semibold">{{ i }}</span>
+        {% else %}
+        <a href="?{% for key, value in filter_parameters.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ i }}" class="px-4 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">{{ i }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if properties.has_next %}
+      <a href="?{% for key, value in filter_parameters.items %}{% if key != 'page' %}{{ key }}={{ value }}&{% endif %}{% endfor %}page={{ properties.next_page_number }}" class="px-3 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      {% endif %}
+    </nav>
+  </div>
+  {% endif %}
+</section>
+
+<!-- Footer -->
+<footer class="bg-zinc-900 text-white py-8">
+  <div class="container mx-auto px-4 text-center">
+    <p>© 2025 RES Properties. All Rights Reserved</p>
+  </div>
+</footer>
+
+<!-- JavaScript for Mobile Menu Toggle -->
+<script>
+  document.getElementById('mobile-menu-button').addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.remove('hidden');
+    } else {
+      mobileMenu.classList.add('hidden');
+    }
+  });
+
+  // Add JavaScript for sorting
+  function updateSort(sortValue) {
+    // Get current URL and params
+    const url = new URL(window.location.href);
+    const params = new URLSearchParams(url.search);
+
+    // Update or add the sort_by parameter
+    params.set('sort_by', sortValue);
+
+    // Redirect to the new URL
+    window.location.href = `${url.pathname}?${params.toString()}`;
+  }
+</script>
+</body>
+</html>
