@@ -104,7 +104,7 @@
         <a href="/property"><button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-md shadow-md">
           Explore Properties
         </button></a>
-        <a href="/login"><button class="bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 rounded-md shadow-md">
+        <a href="/signup"><button class="bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 rounded-md shadow-md">
           Sign Up Now
         </button></a>
       </div>
@@ -286,7 +286,7 @@
       <!-- CARD 1 -->
       <div class="bg-white rounded-md shadow-md overflow-hidden h-full">
         <div class="relative">
-          <img src="{% static 'images/Screenshot 2025-05-12 224726.png' %}" alt="Property 1" class="w-full h-64 sm:h-72 md:h-80 object-cover">
+<img src="{% static 'images/Screenshot 2025-05-12 224726.png' %}" alt="Luxury Apartment in Thondayad" class="w-full h-64 sm:h-72 md:h-80 object-cover">
           <div class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">FLAT/APARTMENT</div>
         </div>
         <div class="p-4 sm:p-6">
@@ -300,7 +300,6 @@
           </div>
           <div class="flex justify-between items-center mt-3">
             <span class="text-lg sm:text-xl font-bold text-gray-800">₹ 73.2 Lac</span>
-            <a href="/Details" class="text-sm text-blue-600 font-medium hover:underline border px-3 py-1 rounded">View Details</a>
           </div>
         </div>
       </div>
@@ -308,7 +307,7 @@
       <!-- CARD 2 -->
       <div class="bg-white rounded-md shadow-md overflow-hidden h-full">
         <div class="relative">
-          <img src="{% static 'images/Screenshot 2025-05-12 224801.png' %}" alt="Property 2" class="w-full h-64 sm:h-72 md:h-80 object-cover">
+          <img src="/api/placeholder/800/600" alt="Luxury Apartment in Malaparamba" class="w-full h-64 sm:h-72 md:h-80 object-cover">
           <div class="absolute top-2 left-2 flex flex-wrap gap-2">
             <span class="bg-orange-500 text-white text-xs font-semibold px-2 py-1 rounded">PREMIUM</span>
             <span class="bg-teal-500 text-white text-xs font-semibold px-2 py-1 rounded">FOR SALE</span>
@@ -326,7 +325,6 @@
           </div>
           <div class="flex justify-between items-center mt-3">
             <span class="text-lg sm:text-xl font-bold text-gray-800">₹ 86.69 Lac</span>
-            <a href="#" class="text-sm text-blue-600 font-medium hover:underline border px-3 py-1 rounded">View Details</a>
           </div>
         </div>
       </div>
@@ -334,7 +332,7 @@
       <!-- CARD 3 -->
       <div class="bg-white rounded-md shadow-md overflow-hidden h-full">
         <div class="relative">
-          <img src="{% static 'images/Screenshot 2025-05-12 224818.png' %}" alt="Property 3" class="w-full h-64 sm:h-72 md:h-80 object-cover">
+          <img src="/api/placeholder/800/600" alt="Apartment Near Lulu Mall" class="w-full h-64 sm:h-72 md:h-80 object-cover">
           <div class="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">FLAT/APARTMENT</div>
         </div>
         <div class="p-4 sm:p-6">
@@ -348,7 +346,6 @@
           </div>
           <div class="flex justify-between items-center mt-3">
             <span class="text-lg sm:text-xl font-bold text-gray-800">₹ 92 Lac</span>
-            <a href="#" class="text-sm text-blue-600 font-medium hover:underline border px-3 py-1 rounded">View Details</a>
           </div>
         </div>
       </div>
@@ -451,44 +448,4 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a2 2 0 011.94 1.45l.41 1.65a2 2 0 01-.45 1.91l-1.1 1.1a16.06 16.06 0 006.07 6.07l1.1-1.1a2 2 0 011.91-.45l1.65.41A2 2 0 0121 18.72V22a2 2 0 01-2 2h-1C9.82 24 1 15.18 1 5V4a1 1 0 011-1h1z" />
           </svg> +91 9048 6000 44
         </p>
-        <p class="text-xs sm:text-sm text-gray-300 mb-4 flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg> hello@RES.com
-        </p>
-
-        <!-- Social Icons -->
-        <div class="flex space-x-4 text-gray-300 mt-2">
-          <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="hover:text-white"><i class="fab fa-youtube"></i></a>
-          <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="mt-8 sm:mt-12 border-t border-gray-700 pt-6 text-xs sm:text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center">
-      <div class="space-x-3 sm:space-x-6 mb-4 md:mb-0">
-        <a href="#" class="hover:text-white">Terms of Use</a>
-        <a href="#" class="hover:text-white">Privacy Policy</a>
-        <a href="#" class="hover:text-white">FAQ</a>
-      </div>
-      <p>© 2025 RES. All Rights Reserved</p>
-    </div>
-  </footer>
-
-  <!-- JavaScript for Mobile Menu Toggle -->
-  <script>
-    document.getElementById('mobile-menu-button').addEventListener('click', function() {
-      const mobileMenu = document.getElementById('mobile-menu');
-      if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-      }
-    });
-  </script>
-</body>
-</html>
+        <p

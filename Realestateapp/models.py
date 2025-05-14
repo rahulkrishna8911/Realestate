@@ -122,3 +122,27 @@ class ContactMessage(models.Model):
         ordering = ['-created_at']
 
 
+def homepage(request):
+
+    featured_properties = Property.objects.filter(
+        featured=True,
+        status__in=['for_sale', 'for_rent']
+    ).order_by('-created_at')[:3]
+
+    if featured_properties.count() < 3:
+        regular_properties = Property.objects.filter(
+            status__in=['for_sale', 'for_rent']
+        ).exclude(
+            id__in=[prop.id for prop in featured_properties]
+        ).order_by('-created_at')[:3 - featured_properties.count()]
+
+        properties = list(featured_properties) + list(regular_properties)
+    else:
+        properties = featured_properties
+
+    return render(request, 'homepage.html', {
+        'properties': properties
+    })
+
+
+
