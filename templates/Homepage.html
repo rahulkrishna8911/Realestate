@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +7,167 @@
   <title>RES - Real Estate Solutions</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Added styles for welcome banner -->
+  <style>
+    .backdrop-blur-sm {
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .opacity-0 {
+      opacity: 0;
+    }
+
+    .transition-opacity {
+      transition-property: opacity;
+    }
+
+    .duration-300 {
+      transition-duration: 300ms;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 font-sans">
 {% load static %}
 
+<!-- Welcome Banner Modal -->
+<div id="welcome-banner" class="fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300">
+  <!-- Blurred Overlay -->
+  <div id="banner-overlay" class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"></div>
+
+  <!-- Modal Content -->
+  <div class="relative bg-white rounded-lg shadow-xl w-11/12 max-w-2xl overflow-hidden z-10 transform transition-all duration-300">
+    <!-- Banner Header with Close Button -->
+    <div class="flex justify-between items-center bg-yellow-400 px-6 py-4">
+      <div class="flex items-center space-x-2">
+        <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="logo" class="w-8 h-8" />
+        <h2 class="text-2xl font-bold text-black">Welcome to RES</h2>
+      </div>
+      <button id="close-banner" class="text-black hover:text-gray-700 focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Banner Content -->
+    <div class="p-6">
+      <div class="mb-6 text-center">
+        <h3 class="text-xl sm:text-2xl font-semibold mb-2 text-gray-800">Find Your Dream Property in Kerala</h3>
+        <p class="text-gray-600">Discover exclusive apartments, houses, and land plots with our AI-powered property search</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+        <div class="bg-blue-50 p-4 rounded-lg text-center">
+          <div class="flex justify-center mb-2">
+            <img src="https://img.icons8.com/color/48/verified-badge.png" alt="Verified" class="h-10 w-10" />
+          </div>
+          <h4 class="font-semibold text-gray-800">Verified Properties</h4>
+          <p class="text-sm text-gray-600">All listings thoroughly vetted by our experts</p>
+        </div>
+
+        <div class="bg-blue-50 p-4 rounded-lg text-center">
+          <div class="flex justify-center mb-2">
+            <img src="https://img.icons8.com/color/48/compass.png" alt="Navigation" class="h-10 w-10" />
+          </div>
+          <h4 class="font-semibold text-gray-800">Easy Navigation</h4>
+          <p class="text-sm text-gray-600">Find properties with our intuitive search tools</p>
+        </div>
+
+        <div class="bg-blue-50 p-4 rounded-lg text-center">
+          <div class="flex justify-center mb-2">
+            <img src="https://img.icons8.com/color/48/artificial-intelligence.png" alt="AI" class="h-10 w-10" />
+          </div>
+          <h4 class="font-semibold text-gray-800">AI Assistance</h4>
+          <p class="text-sm text-gray-600">Get personalized property recommendations</p>
+        </div>
+      </div>
+
+      <!-- Special Offer -->
+      <div class="bg-orange-50 border-l-4 border-orange-500 p-4 mb-6">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm text-orange-700">
+              <span class="font-bold">New User Special:</span> Register now and get a free property consultation with our experts!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/property"><button class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-md shadow-md">
+          Explore Properties
+        </button></a>
+        <a href="/login"><button class="bg-white border border-gray-300 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-6 rounded-md shadow-md">
+          Sign Up Now
+        </button></a>
+      </div>
+    </div>
+
+    <!-- Banner Footer -->
+    <div class="bg-gray-50 px-6 py-3 text-center text-sm text-gray-500">
+      <label class="inline-flex items-center">
+        <input type="checkbox" id="dont-show-again" class="rounded text-blue-600">
+        <span class="ml-2">Don't show this message again</span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Banner Close Functionality -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const welcomeBanner = document.getElementById('welcome-banner');
+    const closeBannerBtn = document.getElementById('close-banner');
+    const dontShowAgainCheckbox = document.getElementById('dont-show-again');
+
+    // Check if banner should be shown
+    const shouldShowBanner = localStorage.getItem('hideWelcomeBanner') !== 'true';
+
+    if (!shouldShowBanner) {
+      welcomeBanner.style.display = 'none';
+    }
+
+    // Close banner function
+    function closeBanner() {
+      // Add animation
+      welcomeBanner.classList.add('opacity-0');
+
+      // After animation completes, hide the banner
+      setTimeout(() => {
+        welcomeBanner.style.display = 'none';
+      }, 300);
+
+      // If checkbox is checked, store in localStorage
+      if (dontShowAgainCheckbox.checked) {
+        localStorage.setItem('hideWelcomeBanner', 'true');
+      }
+    }
+
+    // Event listeners
+    closeBannerBtn.addEventListener('click', closeBanner);
+
+    // Allow closing by clicking outside the modal
+    welcomeBanner.addEventListener('click', function(e) {
+      if (e.target === welcomeBanner || e.target.id === 'banner-overlay') {
+        closeBanner();
+      }
+    });
+
+    // Allow closing with ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && welcomeBanner.style.display !== 'none') {
+        closeBanner();
+      }
+    });
+  });
+</script>
   <!-- Hero Section with Navbar -->
   <section class="relative bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c'); min-height: 100vh;">
     <div class="absolute inset-0 bg-black bg-opacity-60">
